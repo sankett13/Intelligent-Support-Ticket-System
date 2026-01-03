@@ -372,7 +372,7 @@ AI-Support-System/
 
 ---
 
-## ✨ Features
+## Features
 
 ### Core Features
 
@@ -395,7 +395,7 @@ AI-Support-System/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 
@@ -418,7 +418,7 @@ AI-Support-System/
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### Tickets
 
@@ -557,7 +557,7 @@ POST /tickets/:ticketId/messages
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Database Connection Issues
 

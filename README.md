@@ -26,7 +26,7 @@ A production-grade intelligent support ticket system powered by AI, demonstratin
 
 ---
 
-##  Why This Project
+## Why This Project
 
 This project was built to demonstrate:
 
@@ -37,7 +37,6 @@ This project was built to demonstrate:
    - Asynchronous job processing with worker queues
    - Message queue systems for scalability
    - Vector embeddings for semantic search
-   - Streaming responses for better UX
 
 3. **Modern Full-Stack Development**: Combines cutting-edge frontend (Next.js 15, React 19, Tailwind CSS v4) with robust backend architecture.
 
@@ -45,7 +44,7 @@ This project was built to demonstrate:
 
 ---
 
-##  How It's Built
+## How It's Built
 
 ### Backend Architecture
 
@@ -270,7 +269,7 @@ This will display the number of knowledge base entries and sample content.
 
 ---
 
-## 🏃 Running the Application
+### Running the Application
 
 You need to run **four separate processes** in different terminal windows:
 
@@ -424,117 +423,132 @@ AI-Support-System/
 ### Tickets
 
 #### Get All Tickets
+
 ```
 GET /tickets
 ```
+
 **Description:** Retrieves all support tickets, ordered by creation date (newest first)
 
 **Response:**
+
 ```json
 {
-    "message": "Tickets retrieved successfully",
-    "data": [
-        {
-            "id": 1,
-            "title": "Cannot access my account",
-            "status": "open",
-            "createdAt": "2024-01-15T10:30:00Z",
-            "updatedAt": "2024-01-15T10:30:00Z"
-        }
-    ]
+  "message": "Tickets retrieved successfully",
+  "data": [
+    {
+      "id": 1,
+      "title": "Cannot access my account",
+      "status": "open",
+      "createdAt": "2024-01-15T10:30:00Z",
+      "updatedAt": "2024-01-15T10:30:00Z"
+    }
+  ]
 }
 ```
 
 #### Create New Ticket
+
 ```
 POST /tickets
 ```
+
 **Request Body:**
+
 ```json
 {
-    "title": "Your question or issue"
+  "title": "Your question or issue"
 }
 ```
 
 **Response:**
+
 ```json
 {
-    "message": "Ticket created",
-    "data": {
-        "id": 1,
-        "title": "Cannot access my account",
-        "status": "open",
-        "createdAt": "2024-01-15T10:30:00Z"
-    }
+  "message": "Ticket created",
+  "data": {
+    "id": 1,
+    "title": "Cannot access my account",
+    "status": "open",
+    "createdAt": "2024-01-15T10:30:00Z"
+  }
 }
 ```
 
 ### Messages
 
 #### Get Messages for Ticket
+
 ```
 GET /tickets/:ticketId/messages
 ```
+
 **Description:** Retrieves all messages for a specific ticket, ordered chronologically
 
 **Response:**
+
 ```json
 {
-    "message": "Messages retrieved successfully",
-    "data": [
-        {
-            "id": 1,
-            "role": "user",
-            "content": "I can't log in to my account",
-            "TicketId": 1,
-            "createdAt": "2024-01-15T10:31:00Z"
-        },
-        {
-            "id": 2,
-            "role": "assistant",
-            "content": "I can help you with that...",
-            "TicketId": 1,
-            "createdAt": "2024-01-15T10:31:15Z"
-        }
-    ]
+  "message": "Messages retrieved successfully",
+  "data": [
+    {
+      "id": 1,
+      "role": "user",
+      "content": "I can't log in to my account",
+      "TicketId": 1,
+      "createdAt": "2024-01-15T10:31:00Z"
+    },
+    {
+      "id": 2,
+      "role": "assistant",
+      "content": "I can help you with that...",
+      "TicketId": 1,
+      "createdAt": "2024-01-15T10:31:15Z"
+    }
+  ]
 }
 ```
 
 #### Send Message to Ticket
+
 ```
 POST /tickets/:ticketId/messages
 ```
+
 **Description:** Sends a new message to a ticket and triggers AI response generation
 
 **Request Body:**
+
 ```json
 {
-    "content": "Your message text"
+  "content": "Your message text"
 }
 ```
 
 **Response:**
+
 ```json
 {
-    "message": "Message received. AI is responding...",
-    "data": {
-        "id": 3,
-        "role": "user",
-        "content": "Your message text",
-        "TicketId": 1,
-        "createdAt": "2024-01-15T10:35:00Z"
-    }
+  "message": "Message received. AI is responding...",
+  "data": {
+    "id": 3,
+    "role": "user",
+    "content": "Your message text",
+    "TicketId": 1,
+    "createdAt": "2024-01-15T10:35:00Z"
+  }
 }
 ```
 
 **Notes:**
+
 - AI response is processed asynchronously via BullMQ worker
 - Poll the GET messages endpoint to retrieve the AI response
 - Failed jobs are retried 3 times with exponential backoff
 
 ---
 
-## 🎯 Usage
+## Usage
 
 1. **Create a Ticket**: Enter a question or issue on the home page
 2. **Start Chatting**: Click on a ticket to open the chat interface
@@ -591,9 +605,7 @@ redis-cli
 
 ## Author
 
-**Shubham Patel/Sanket Patel(both are my name)**
-
-Built as a demonstration of modern AI integration, production-grade architecture, and full-stack development best practices.
+> ### **Shubham Patel** aka **Sanket Patel** > Two names, one developer, and zero bugs (usually).
 
 ---
 
